@@ -12,5 +12,6 @@ Script to delete S3 bucket.
 
 ### Setup
 git clone "---url---"\
+npm init\
 npm install\
-node filename.js
+node filename.js "--- to run----"
