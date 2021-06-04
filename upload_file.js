@@ -19,7 +19,9 @@ const s3 = new AWS.S3({
 const uploadFile = (fileName) => {
     // read content from the file
     const fileContent = fs.readFileSync(fileName);
-	let file_url="";
+    
+    // output file URL
+    let file_url="";
 
 	// timestamp
 	const ts = Date.now();
@@ -27,11 +29,16 @@ const uploadFile = (fileName) => {
     // file name you want to save as
 	const filename = uuidv4()+'_'+ ts +'.jpeg';
     
+    // set permission to access file via url
+    const permission = 'public-read';
+
 	// setting up s3 upload params
     const params = {
         Bucket: BUCKET_NAME,
         Key: filename,
-        Body: fileContent
+        Body: fileContent,
+        ACL: permission,
+        ContentType: 'image/jpeg',
     };
 
     // Uploading files to the bucket
@@ -53,8 +60,7 @@ uploadFile('Test_image.jpg');
 /*
 output
 
-
 uploaded url
-file url https://s3.us-east-2.amazonaws.com/twototangodev/29fa36b5-cf79-448e-8f95-e94e1595039a_1622706074120.jpeg
-File uploaded successfully. https://twototangodev.s3.amazonaws.com/Admin/subscription/29fa36b5-cf79-448e-8f95-e94e1595039a_1622706074120.jpeg
+file url https://s3.us-east-2.amazonaws.com/test_bucket/29fa36b5-cf79-448e-8f95-e94e1595039a_1622706074120.jpeg
+File uploaded successfully. https://test_bucket.s3.amazonaws.com/Admin/subscription/29fa36b5-cf79-448e-8f95-e94e1595039a_1622706074120.jpeg
 */
