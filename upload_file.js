@@ -61,6 +61,4 @@ uploadFile('Test_image.jpg');
 output
 
 uploaded url
-file url https://s3.us-east-2.amazonaws.com/test_bucket/29fa36b5-cf79-448e-8f95-e94e1595039a_1622706074120.jpeg
-File uploaded successfully. https://test_bucket.s3.amazonaws.com/29fa36b5-cf79-448e-8f95-e94e1595039a_1622706074120.jpeg
 */
